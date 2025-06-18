@@ -17,7 +17,7 @@ Neovim + Fish + Starship + Tmux + Yazi
 
 ## Managed Programs
 
-- [alacritty](https://github.com/alacritty/alacritty/blob/master/INSTALL.md) -- Terminal emulator config
+- [alacritty](https://github.com/alacritty/alacritty/blob/master/INSTALL.md) - Terminal emulator config
 - [fish](https://github.com/fish-shell/fish-shell?tab=readme-ov-file#getting-fish) - Shell configuration 
 - [nvim](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-package) - Modular-Kickstart Neovim setup with plugins
 - [sketchybar](https://felixkratz.github.io/SketchyBar/setup) - macOS status bar customization (out of use)
