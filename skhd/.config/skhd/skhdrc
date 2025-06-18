@@ -1,0 +1,67 @@
+# changing window focus
+alt - e : yabai -m window --focus south
+alt - u : yabai -m window --focus north
+alt - n : yabai -m window --focus west
+alt - i : yabai -m window --focus east
+
+# focus external displays
+alt - l : yabai -m display --focus west
+alt - y : yabai -m display --focus east
+
+# rotate
+alt - t : yabai -m space --rotate 270
+alt - s : yabai -m space --rotate 90
+alt - f : yabai -m space --mirror x-axis 
+alt - p : yabai -m space --mirror y-axis
+
+# take out of tiling 
+shift + alt - backspace : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# maximize window
+shift + alt - return : yabai -m window --toggle zoom-fullscreen
+
+# balance resized windows
+alt - z : yabai -m space --balance
+
+# move window between spaces
+shift + ctrl - 1 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[0]')
+shift + ctrl - 2 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[1]')
+shift + ctrl - 3 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[2]')
+shift + ctrl - 4 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[3]')
+shift + ctrl - 5 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[4]')
+shift + ctrl - 6 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[5]')
+shift + ctrl - 7 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[6]')
+shift + ctrl - 8 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[7]')
+shift + ctrl - 9 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[8]')
+shift + ctrl - 0 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[9]')
+
+# switch between spaces
+ctrl - 1 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[0]')
+ctrl - 2 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[1]')
+ctrl - 3 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[2]')
+ctrl - 4 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[3]')
+ctrl - 5 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[4]')
+ctrl - 6 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[5]')
+ctrl - 7 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[6]')
+ctrl - 8 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[7]')
+ctrl - 9 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[8]')
+ctrl - 0 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[9]')
+
+alt - return : alacritty msg create-window || alacritty
+alt - w : open -na "Brave Browser"
+alt - d : open -a "Discord"
+alt - b : alacritty msg create-window -e yazi ~ || alacritty -e yazi ~
+
+# disable cmd tab
+cmd - tab : echo hi
+
+# swap spaces between displays
+
+# swap windows and move windows and split (todo)
+# move window to display left and right 
+
+alt - 0x29 : yabai -m space --swap $(yabai -m query --spaces | jq '.[] | select(.["is-visible"] == true and .["has-focus"] == false) | .index')
+
+.blacklist [
+  "java"
+]

@@ -1,0 +1,35 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = "$directory$git_branch$git_status$character"
+right_format = "[$time](gray)"
+
+add_newline = false
+
+[directory]
+truncate_to_repo = false
+fish_style_pwd_dir_length = 4
+truncation_length = 1
+style = "#02afff"
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+symbol = ''
+style = '#5fd700'
+
+[git_status]
+format = '$ahead_behind$all_status'
+conflicted = '=$count '
+ahead = '[⇡$count ](#5fd700)'
+behind = '⇣$count '
+diverged = '⇕$count '
+untracked = '[?$count ](blue)'
+stashed = '\$$count '
+modified = '[!$count ](bright-yellow)'
+staged = '+$count '
+renamed = '»$count '
+deleted = '[✘$count ](red)'
+
+[time]
+disabled = false
+format = '[$time]($style) '
