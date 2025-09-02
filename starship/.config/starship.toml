@@ -1,8 +1,8 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = "$directory$git_branch$git_status$character"
-right_format = "[$hostname](bold red) [$time](gray)"
+format = "$hostname$directory$git_branch$git_status$character"
+right_format = "[$time](gray)"
 
 add_newline = false
 
@@ -37,3 +37,5 @@ format = '[$time]($style) '
 [hostname]
 ssh_only = true
 style = "bold red"
+ssh_symbol = ""
+format = '[\[$ssh_symbol$hostname\]]($style) '
