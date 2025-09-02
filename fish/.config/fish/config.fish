@@ -1,6 +1,8 @@
 alias dns_flush="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 alias vi="nvim"
 
+fish_vi_key_bindings
+
 function close
     osascript -e "quit app \"$argv\""
 end
