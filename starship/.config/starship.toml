@@ -37,4 +37,3 @@ format = '[$time]($style) '
 [hostname]
 ssh_only = true
 style = "bold red"
-trim_at = 0
