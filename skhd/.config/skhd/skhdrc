@@ -1,8 +1,8 @@
 # changing window focus
-alt - e : yabai -m window --focus south
-alt - u : yabai -m window --focus north
-alt - n : yabai -m window --focus west
-alt - i : yabai -m window --focus east
+alt - e : yabai -m window --focus south || yabai -m display --focus south
+alt - u : yabai -m window --focus north || yabai -m display --focus north
+alt - n : yabai -m window --focus west || yabai -m display --focus west
+alt - i : yabai -m window --focus east || yabai -m display --focus east
 
 # focus external displays
 alt - l : yabai -m display --focus west
@@ -22,6 +22,13 @@ shift + alt - return : yabai -m window --toggle zoom-fullscreen
 
 # balance resized windows
 alt - z : yabai -m space --balance
+
+
+# move windows across displays (and keep window focus)
+shift + ctrl - e : yabai -m window --display south && yabai -m display --focus south
+shift + ctrl - u : yabai -m window --display north && yabai -m display --focus north
+shift + ctrl - n : yabai -m window --display west && yabai -m display --focus west
+shift + ctrl - i : yabai -m window --display east && yabai -m display --focus east
 
 # move window between spaces
 shift + ctrl - 1 : yabai -m window --space $(yabai -m query --displays --display | jq '.spaces[0]')
@@ -47,6 +54,7 @@ ctrl - 8 : yabai -m space --focus $(yabai -m query --displays --display | jq '.s
 ctrl - 9 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[8]')
 ctrl - 0 : yabai -m space --focus $(yabai -m query --displays --display | jq '.spaces[9]')
 
+# app shortcuts
 alt - return : alacritty msg create-window || alacritty
 alt - w : open -na "Brave Browser"
 alt - d : open -a "Discord"
@@ -55,12 +63,8 @@ alt - b : alacritty msg create-window -e yazi ~ || alacritty -e yazi ~
 # disable cmd tab
 cmd - tab : echo hi
 
-# swap spaces between displays
 
-# swap windows and move windows and split (todo)
-# move window to display left and right 
-
-alt - 0x29 : yabai -m space --swap $(yabai -m query --spaces | jq '.[] | select(.["is-visible"] == true and .["has-focus"] == false) | .index')
+alt - escape : yabai -m space --swap $(yabai -m query --spaces | jq -r --argjson current_space "$(yabai -m query --windows --window | jq '.space')" '.[] | select(.["is-visible"]==true and .index != $current_space) | .index')
 
 .blacklist [
   "java"
